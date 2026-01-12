@@ -1,32 +1,37 @@
+// Initialize AOS Animations
+AOS.init({ 
+    duration: 1000, 
+    once: false 
+});
 
-        const countdownDate = new Date('Nov 5, 2025 00:00:00').getTime();
-        
+/**
+ * Countdown Logic for Championship
+ */
+const countdownDate = new Date('Mar 4, 2026 00:00:00').getTime();
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
 
-           
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    if (distance < 0) {
+        document.getElementById('days').textContent = "00";
+        document.getElementById('hours').textContent = "00";
+        document.getElementById('minutes').textContent = "00";
+        document.getElementById('seconds').textContent = "00";
+        return;
+    }
 
-            
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-            
-            if (distance < 0) {
-                clearInterval(countdownFunction);
-                document.querySelector('.countdown-title').textContent = 'Campeonato Iniciado!';
-                document.querySelector('.countdown-grid').innerHTML = '<div style="grid-column: 1 / -1; padding: 2rem; color: var(--accent-yellow); font-size: 1.5rem;">Boa Sorte!</div>';
-            }
-        }
+    document.getElementById('days').textContent = d.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = h.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = m.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = s.toString().padStart(2, '0');
+}
 
-        
-        const countdownFunction = setInterval(updateCountdown, 1000);
-
-        updateCountdown();
+// Run countdown every second
+setInterval(updateCountdown, 1000);
+updateCountdown();
