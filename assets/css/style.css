@@ -2,6 +2,38 @@
     --ampharos-yellow: #ffc107; 
 }
 
+
+.group {
+    position: relative;
+    overflow: hidden;
+}
+
+.group:hover {
+    box-shadow: 
+        0 0 25px rgba(255, 193, 7, 0.3),
+        0 10px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px);
+    border-color: rgba(255, 193, 7, 0.4);
+}
+
+
+@keyframes shine {
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* .group:hover .shine-effect {
+    animation: shine 0.7s ease;
+} */
+
+
+/* @layer utilities {
+    .ease-\[cubic-bezier\(0\.23\,1\,0\.32\,1\)\] {
+        transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+} */
+
 body { 
     background-color: #050505; 
     color: #e0e0e0; 
@@ -20,6 +52,9 @@ h1, h2, h3, .nav-font {
 .neon-border { 
     border: 1px solid rgba(255, 193, 7, 0.3); 
     box-shadow: 0 0 15px rgba(255, 193, 7, 0.1); 
+    box-shadow: 
+        0 0 15px rgba(255, 193, 7, 0.1),
+        inset 0 0 15px rgba(255, 193, 7, 0.05);
 }
 
 .neon-border:hover { 
@@ -39,6 +74,11 @@ h1, h2, h3, .nav-font {
     background: rgba(255, 255, 255, 0.03); 
     backdrop-filter: blur(10px); 
     border: 1px solid rgba(255, 255, 255, 0.05); 
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    /* background: rgba(255, 193, 7, 0.1);  */
+    /* border: 1px solid rgba(255, 193, 7, 0.2); */
+    
 }
 
 /* Grid Background Effect */
@@ -51,3 +91,450 @@ h1, h2, h3, .nav-font {
 header ul li a:hover {
     text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
 }
+
+
+.section-container {
+            padding: 100px 20px;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 193, 7, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 193, 7, 0.03) 0%, transparent 50%);
+        }
+
+@media (max-width:1000px){
+    .section-container{
+        display: none;
+    }
+}
+        
+        /* Efeito de frases repetidas infinitas */
+        .infinite-text-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+            mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+        }
+        
+        .infinite-text-track {
+            position: absolute;
+            display: flex;
+            white-space: nowrap;
+            animation: infiniteScroll linear infinite;
+            color: rgba(255, 193, 7, 0.08);
+            font-size: 6rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            user-select: none;
+        }
+        
+        /* Posicionamento das faixas de texto */
+        .infinite-text-track:nth-child(1) {
+            top: 10%;
+            animation-duration: 120s;
+            font-size: 5.5rem;
+            color: rgba(255, 193, 7, 0.07);
+        }
+        
+        .infinite-text-track:nth-child(2) {
+            top: 30%;
+            animation-duration: 100s;
+            animation-direction: reverse;
+            font-size: 4.8rem;
+            color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .infinite-text-track:nth-child(3) {
+            top: 50%;
+            animation-duration: 140s;
+            font-size: 6.2rem;
+            color: rgba(255, 193, 7, 0.06);
+        }
+        
+        .infinite-text-track:nth-child(4) {
+            top: 70%;
+            animation-duration: 90s;
+            animation-direction: reverse;
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.04);
+        }
+        
+        .infinite-text-track:nth-child(5) {
+            top: 85%;
+            animation-duration: 160s;
+            font-size: 4.5rem;
+            color: rgba(255, 193, 7, 0.05);
+        }
+        
+        @keyframes infiniteScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        /* Conteúdo principal com glassmorphism */
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, #ffc107, #ffd54f, #ffc107);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 25px rgba(255, 193, 7, 0.3);
+            letter-spacing: 1px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #ffd54f;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Carrossel com glassmorphism */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 25px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.8),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 0 30px rgba(255, 193, 7, 0.15);
+        }
+        
+        .carousel {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .carousel-icon {
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+            color: #ffc107;
+            text-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
+            filter: drop-shadow(0 5px 15px rgba(255, 193, 7, 0.3));
+        }
+        
+        .carousel-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #ffc107;
+            text-shadow: 0 2px 10px rgba(255, 193, 7, 0.3);
+            letter-spacing: 1px;
+        }
+        
+        .carousel-description {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #e0e0e0;
+            max-width: 800px;
+            margin-bottom: 2.5rem;
+            background: rgba(255, 193, 7, 0.05);
+            padding: 25px 30px;
+            border-radius: 15px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .carousel-author {
+            color: #ffd54f;
+            font-style: italic;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .carousel-author::before {
+            content: "";
+            width: 30px;
+            height: 1px;
+            background: rgba(255, 193, 7, 0.5);
+        }
+        
+        .carousel-author::after {
+            content: "";
+            width: 30px;
+            height: 1px;
+            background: rgba(255, 193, 7, 0.5);
+        }
+        
+        /* Botões do carrossel com neon effect */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffc107;
+            border: 2px solid #ffc107;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.6rem;
+            cursor: pointer;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 
+                0 5px 20px rgba(0, 0, 0, 0.7),
+                0 0 15px rgba(255, 193, 7, 0.3);
+        }
+        
+        .carousel-btn:hover {
+            background: #ffc107;
+            color: #000;
+            transform: translateY(-50%) scale(1.15);
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.9),
+                0 0 25px rgba(255, 193, 7, 0.6);
+        }
+        
+        .carousel-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+        
+        .carousel-btn.prev {
+            left: 25px;
+        }
+        
+        .carousel-btn.next {
+            right: 25px;
+        }
+        
+        /* Indicadores com efeito de pulso */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 3rem;
+        }
+        
+        .indicator {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            border: 2px solid transparent;
+        }
+        
+        .indicator::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 193, 7, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background: transparent;
+            border-color: #ffc107;
+            transform: scale(1.3);
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.7);
+        }
+        
+        .indicator.active::before {
+            background: #ffc107;
+            width: 10px;
+            height: 10px;
+            box-shadow: 0 0 10px #ffc107;
+        }
+        
+        /* Efeitos visuais adicionais */
+        .glowing-orbs {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.3;
+        }
+        
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #ffc107 0%, transparent 70%);
+            top: 10%;
+            left: 10%;
+            animation: floatOrb 20s infinite alternate ease-in-out;
+        }
+        
+        .orb-2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #ffc107 0%, transparent 70%);
+            bottom: 15%;
+            right: 10%;
+            animation: floatOrb 25s infinite alternate-reverse ease-in-out;
+        }
+        
+        @keyframes floatOrb {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+        
+        /* Efeito de brilho nas bordas */
+        .carousel-container::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, rgba(255, 193, 7,0.5),#000,rgba(255, 193, 7,0.5), #000, rgba(255, 193, 7,0.5));
+            border-radius: 27px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .carousel-container:hover::before {
+            opacity: 0.5;
+            animation: borderGlow 3s linear infinite;
+        }
+        
+        @keyframes borderGlow {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+        
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .section-title {
+                font-size: 2.8rem;
+            }
+            
+            .infinite-text-track {
+                font-size: 5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-container {
+                padding: 80px 15px;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+            
+            .infinite-text-track {
+                font-size: 3.5rem;
+            }
+            
+            .infinite-text-track:nth-child(1) {
+                font-size: 3.2rem;
+            }
+            
+            .infinite-text-track:nth-child(3) {
+                font-size: 3.8rem;
+            }
+            
+            .carousel-item {
+                padding: 40px 25px;
+            }
+            
+            .carousel-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .carousel-title {
+                font-size: 1.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.9rem;
+            }
+            
+            .infinite-text-track {
+                font-size: 2.5rem;
+            }
+            
+            .carousel-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+            
+            .carousel-description {
+                padding: 20px;
+                font-size: 1rem;
+            }
+        }
