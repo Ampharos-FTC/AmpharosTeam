@@ -562,3 +562,10 @@ header ul li a:hover {
                 font-size: 1rem;
             }
         }
+
+        @media (max-width:600px){
+            nav{
+                transform: scale(0.7);
+            }
+}
+        
