@@ -91,3 +91,15 @@ header ul li a:hover {
                       linear-gradient(90deg, rgba(255, 193, 7, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
 }
+
+.apostila{
+    background-image: url(../images/apostila.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.manual{
+    background-image: url(../images/manual.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}

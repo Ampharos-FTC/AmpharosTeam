@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ampharos FTC | LudoBot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/favico.png">
+    <link rel="stylesheet" href="assets/css/aulas.css">
+</head>
+<body class="bg-grid">
+
+    <header class="fixed top-6 left-1/2 -translate-x-1/2 z-50 glass border border-yellow-500/30 rounded-full w-max shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+        <nav class="px-10 py-4 flex justify-between items-center gap-16">
+            
+            <div class="flex items-center gap-4">
+                <img src="assets/images/favico.png" 
+                    alt="Logo" 
+                    class="h-10 w-10 drop-shadow-[0_0_8px_#ffc107]">
+                <span class="text-2xl font-bold tracking-tighter text-white uppercase italic">
+                    Ampharos<span class="text-[#ffc107]">FTC</span>
+                </span>
+            </div>
+
+            <ul class="flex gap-10 nav-font text-sm uppercase tracking-[0.2em] font-semibold">
+                <li>
+                    <a href="index.html" class="text-white hover:text-[#ffc107] transition-colors">Início</a>
+                </li>
+                <li>
+                    <a href="aulas.html" class="text-[#ffc107] neon-yellow hover:brightness-125 transition-all">Aulas</a>
+                </li>
+                <li>
+                    <a href="https://ampharos-ftc.github.io/asp/" class="text-white hover:text-[#ffc107] transition-colors">ASP</a>
+                </li>
+            </ul>
+            
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <br><br><br>
+        <div class="text-center mb-16" data-aos="fade-down">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 italic uppercase text-[#ffc107]">LudoBot</h1>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up">
+            <button class="filter-btn active px-8 py-2 rounded-full border border-yellow-500/20 font-bold uppercase text-xs" data-filter="all">Todas</button>
+            <button class="filter-btn px-8 py-2 rounded-full border border-yellow-500/20 font-bold uppercase text-xs" data-filter="a">Introdução</button>
+            <button class="filter-btn px-8 py-2 rounded-full border border-yellow-500/20 font-bold uppercase text-xs" data-filter="b">Programação</button>
+            <button class="filter-btn px-8 py-2 rounded-full border border-yellow-500/20 font-bold uppercase text-xs" data-filter="c">Montagens</button>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <div class="lesson-card glass rounded-3xl p-4 border border-white/5 transition-all" data-level="a" data-aos="fade-up">
+                <div class="thumb-container h-48 mb-6">
+                    <div class="play-overlay"><span class="text-white text-5xl">▶</span></div>
+                    <img src="https://img.youtube.com/vi/5b2xMaXwdKA/mqdefault.jpg" class="thumb-img" id="img-1" alt="Introdução ao Kit">
+                </div>
+                <h3 class="text-xl font-bold mb-2">Introdução ao Kit</h3>
+                <br>
+                <button class="play-button w-full bg-[#ffc107] text-black py-3 rounded-xl font-bold uppercase text-xs hover:shadow-[0_0_15px_#ffc107]" 
+                    data-id="5b2xMaXwdKA" data-title="Introdução ao Kit">Assistir Aula</button>
+            </div>
+
+            <div class="lesson-card glass rounded-3xl p-4 border border-white/5 transition-all" data-level="a" data-aos="fade-up">
+                <div class="thumb-container h-48 mb-6">
+                    <div class="play-overlay"><span class="text-white text-5xl">▶</span></div>
+                    <img src="https://img.youtube.com/vi/Y2rjTt2TCwA/mqdefault.jpg" class="thumb-img" alt="Primeira Montagem">
+                </div>
+                <h3 class="text-xl font-bold mb-2">Primeira Montagem</h3>
+                 <br>
+                <button class="play-button w-full bg-[#ffc107] text-black py-3 rounded-xl font-bold uppercase text-xs hover:shadow-[0_0_15px_#ffc107]" 
+                    data-id="Y2rjTt2TCwA" data-title="Primeira Montagem">Assistir Aula</button>
+            </div>
+
+            <div class="lesson-card glass rounded-3xl p-4 border border-yellow-500/10 transition-all" data-level="b" data-aos="fade-up">
+                <div class="thumb-container h-48 mb-6">
+                    <div class="play-overlay"><span class="text-white text-5xl">▶</span></div>
+                    <img src="https://img.youtube.com/vi/7fBMAzSxbK8/mqdefault.jpg" class="thumb-img" alt="Programação">
+                </div>
+                <h3 class="text-xl font-bold mb-2 ">Programação</h3>
+
+                <a href="https://drive.google.com/drive/folders/1UfBrXvg7dbXK1WLEaiOiZuJhWeKT_5H5?usp=sharing" target="_blank" class="block text-center text-[10px] text-yellow-500 mb-4 hover:underline">📁 BAIXAR ARQUIVOS</a>
+                <button class="play-button w-full bg-[#ffc107] text-black py-3 rounded-xl font-bold uppercase text-xs hover:shadow-[0_0_15px_#ffc107]" 
+                    data-id="7fBMAzSxbK8" data-title="Programação LudoBot">Assistir Aula</button>
+            </div>
+
+            <div class="lesson-card glass rounded-3xl p-4 border border-white/5 transition-all" data-level="c" data-aos="fade-up">
+                <div class="thumb-container h-48 mb-6">
+                    <div class="play-overlay"><span class="text-white text-5xl">▶</span></div>
+                    <img src="https://img.youtube.com/vi/lPO_6chup-Q/mqdefault.jpg" class="thumb-img" alt="Montando Alien">
+                </div>
+                <h3 class="text-xl font-bold mb-2">Montando Alien</h3>
+                 <br>
+                <button class="play-button w-full bg-[#ffc107] text-black py-3 rounded-xl font-bold uppercase text-xs hover:shadow-[0_0_15px_#ffc107]" 
+                    data-id="lPO_6chup-Q" data-title="Montagem: Alien">Assistir Aula</button>
+            </div>
+
+            <div class="lesson-card glass rounded-3xl p-4 border border-white/5 transition-all" data-level="c" data-aos="fade-up">
+                <div class="thumb-container h-48 mb-6">
+                    <div class="play-overlay"><span class="text-white text-5xl">▶</span></div>
+                    <img src="https://img.youtube.com/vi/CM7QS6gc9oA/mqdefault.jpg" class="thumb-img" alt="Bicho Preguiça">
+                </div>
+                <h3 class="text-xl font-bold mb-2">Bicho Preguiça</h3>
+                 <br>
+                <button class="play-button w-full bg-[#ffc107] text-black py-3 rounded-xl font-bold uppercase text-xs hover:shadow-[0_0_15px_#ffc107]" 
+                    data-id="CM7QS6gc9oA" data-title="Montagem: Bicho Preguiça">Assistir Aula</button>
+            </div>
+
+            <div class="lesson-card glass rounded-3xl p-4 border border-white/5 transition-all" data-level="c" data-aos="fade-up">
+                <div class="thumb-container h-48 mb-6">
+                    <div class="play-overlay"><span class="text-white text-5xl">▶</span></div>
+                    <img src="https://img.youtube.com/vi/nzt1Ah0Jgy8/mqdefault.jpg" class="thumb-img" alt="Montando Aranha">
+                </div>
+                <h3 class="text-xl font-bold mb-2">Montando Aranha</h3>
+                 <br>
+                <button class="play-button w-full bg-[#ffc107] text-black py-3 rounded-xl font-bold uppercase text-xs hover:shadow-[0_0_15px_#ffc107]" 
+                    data-id="nzt1Ah0Jgy8" data-title="Montagem: Aranha">Assistir Aula</button>
+            </div>
+
+            <div class="lesson-card glass rounded-3xl p-4 border border-white/5 transition-all" data-level="c" data-aos="fade-up">
+                <div class="thumb-container h-48 mb-6">
+                    <div class="play-overlay"><span class="text-white text-5xl">▶</span></div>
+                    <img src="https://img.youtube.com/vi/CRz3c9qwOIg/mqdefault.jpg" class="thumb-img" alt="O Passarinho">
+                </div>
+                <h3 class="text-xl font-bold mb-2">O Passarinho</h3>
+                 <br>
+                <button class="play-button w-full bg-[#ffc107] text-black py-3 rounded-xl font-bold uppercase text-xs hover:shadow-[0_0_15px_#ffc107]" 
+                    data-id="CRz3c9qwOIg" data-title="Montagem: Passarinho">Assistir Aula</button>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="videoModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/95 p-4">
+        <div class="max-w-5xl w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h2 id="modalTitle" class="text-xl font-bold text-[#ffc107] italic uppercase">Título do Vídeo</h2>
+                <button id="closeModal" class="text-4xl text-white hover:text-red-500 transition-all">&times;</button>
+            </div>
+            <div class="aspect-video glass rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(255,193,7,0.1)]">
+                <iframe id="videoPlayer" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/aulas.js"></script>
+</body>
+</html>
