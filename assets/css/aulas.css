@@ -101,5 +101,27 @@ header ul li a:hover {
 .manual{
     background-image: url(../images/manual.png);
     background-size: contain;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;}
+.abc {
+  position: relative;
+  text-decoration: none;
+  color: #000;
+}
+
+.abc::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.abc:hover::after {
+  transform: scaleX(1);
 }
