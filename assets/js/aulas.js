@@ -69,3 +69,143 @@ document.addEventListener('keydown', (e) => {
         closeModal();
     }
 });
+
+
+const librasVideos = {
+    "5b2xMaXwdKA": "assets/images/libras.mp4", 
+};
+
+let currentVideoId = null;
+let currentVideoTitle = null;
+
+document.querySelectorAll('.play-button').forEach(button => {
+    button.addEventListener('click', function(e) {
+        const videoId = this.getAttribute('data-id');
+        const videoTitle = this.getAttribute('data-title');
+        
+        currentVideoId = videoId;
+        currentVideoTitle = videoTitle;
+        
+        const modal = document.getElementById('videoModal');
+        const player = document.getElementById('videoPlayer');
+        const title = document.getElementById('modalTitle');
+        
+        player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`;
+        title.textContent = videoTitle;
+        modal.classList.add('flex');
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        
+        const oldBtn = document.getElementById('activateLibrasBtn');
+        if (oldBtn) oldBtn.remove();
+        
+        if (videoId === '5b2xMaXwdKA') {
+            setTimeout(() => {
+                addLibrasButtonToModal();
+            }, 500);
+        }
+    });
+});
+
+function addLibrasButtonToModal() {
+    const btnContainer = document.querySelector('#videoModal .max-w-5xl');
+    if (!btnContainer) return;
+    
+    const librasBtn = document.createElement('div');
+    librasBtn.id = 'activateLibrasBtn';
+    librasBtn.className = 'mt-4 text-center';
+    librasBtn.innerHTML = `
+        <button id="activateLibras" class="bg-[#ffc107] text-black px-6 py-3 rounded-xl font-bold uppercase text-sm hover:shadow-[0_0_25px_rgba(255,193,7,0.6)] transition-all inline-flex items-center gap-2">
+            <span></span> Ativar Acessibilidade (Libras)
+        </button>
+    `;
+    btnContainer.appendChild(librasBtn);
+    
+    document.getElementById('activateLibras').addEventListener('click', function() {
+        openLibrasModal();
+    });
+}
+
+function openLibrasModal() {
+    if (!currentVideoId) return;
+    
+    const librasModal = document.getElementById('librasModal');
+    const mainVideo = document.getElementById('librasMainVideo');
+    const librasVideo = document.getElementById('librasVideo');
+    const librasPath = librasVideos[currentVideoId];
+    
+    if (!librasPath) {
+        alert('Vídeo em Libras não disponível.');
+        return;
+    }
+    
+   
+    mainVideo.src = `https://www.youtube.com/embed/${currentVideoId}?autoplay=1&enablejsapi=1&start=15`;
+    
+    
+    const source = librasVideo.querySelector('source');
+    if (source) {
+        source.src = librasPath; 
+    }
+    
+ 
+    librasVideo.load();
+    
+    
+    const closeBtn = document.getElementById('closeModal');
+    if (closeBtn) closeBtn.click();
+    
+    
+    librasModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    
+   
+    librasVideo.addEventListener('loadeddata', function onLoad() {
+        this.play();
+        this.removeEventListener('loadeddata', onLoad);
+    });
+}
+
+document.getElementById('closeLibrasModal').addEventListener('click', function() {
+    const librasModal = document.getElementById('librasModal');
+    const mainVideo = document.getElementById('librasMainVideo');
+    const librasVideo = document.getElementById('librasVideo');
+    
+    mainVideo.src = '';
+    
+    const source = librasVideo.querySelector('source');
+    if (source) {
+        source.src = '';
+    }
+    librasVideo.load();
+    
+    librasModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+
+document.getElementById('librasModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        document.getElementById('closeLibrasModal').click();
+    }
+});
+
+
+const style = document.createElement('style');
+style.textContent = `
+    #activateLibrasBtn {
+        animation: slideUp 0.3s ease;
+    }
+    
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+`;
+document.head.appendChild(style);
