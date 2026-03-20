@@ -7,7 +7,7 @@ AOS.init({
 /**
  * Countdown Logic for Championship
  */
-const countdownDate = new Date('Mar 4, 2026 00:00:00').getTime();
+const countdownDate = new Date('Aug 29, 2026 00:00:00').getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();
